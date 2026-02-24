@@ -2,7 +2,7 @@
 //  FeedTheFridgeApp.swift
 //  FeedTheFridge
 //
-//  Created by Ando, Akiho on 23/02/2026.
+//  Created by Ando, Akiho and Micha on 23/02/2026.
 //
 
 import SwiftUI
