@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UeL-D0-Rj7">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="Dqo-69-bZc">
+            <objects>
+                <viewController title="Search" id="bYq-hq-VYX" customClass="SearchViewController" customModule="FeedTheFridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZtK-KI-SQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gWH-r3-08R"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="KmQ-ru-I59"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faL-Ky-M5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="110"/>
+        </scene>
+        <!--Inventory-->
+        <scene sceneID="xVi-KZ-UHJ">
+            <objects>
+                <viewController title="Inventory" id="9mP-k9-e1w" customClass="InventoryViewController" customModule="FeedTheFridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAu-JY-YYc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="k5e-cw-zhJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="n16-kf-POV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mtf-br-xbM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="738"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Euj-K2-aFz">
+            <objects>
+                <viewController title="Profile" id="EGj-eu-h3g" customClass="ProfileViewController" customModule="FeedTheFridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8f-Rd-Trm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8Em-xd-wUI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="w1f-kX-SHT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8s-ml-pE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="1615"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="GQD-f2-3YB">
+            <objects>
+                <viewController title="Home" id="UeL-D0-Rj7" customClass="HomeViewController" customModule="FeedTheFridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CBG-rV-Afo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eqw-yc-cOD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="FXi-Zj-qg0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBF-MZ-XoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="-497"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cwS-aO-Jt4">
+            <objects>
+                <tabBarController id="MId-Wi-T1d" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Vo-8R-poH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UeL-D0-Rj7" kind="relationship" relationship="viewControllers" id="hRs-RE-qmY"/>
+                        <segue destination="bYq-hq-VYX" kind="relationship" relationship="viewControllers" id="rly-fF-EAT"/>
+                        <segue destination="9mP-k9-e1w" kind="relationship" relationship="viewControllers" id="VbD-f4-eYi"/>
+                        <segue destination="EGj-eu-h3g" kind="relationship" relationship="viewControllers" id="gI4-gA-Mek"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cES-Bk-c6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1808" y="737"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

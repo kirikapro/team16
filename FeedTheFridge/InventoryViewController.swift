@@ -1,13 +1,13 @@
 //
-//  MainViewController.swift
+//  InventoryViewController.swift
 //  FeedTheFridge
 //
-//  Created by Micha Glissmann on 24/02/2026.
+//  Created by Akiho Ando on 2026/03/02.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class InventoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
