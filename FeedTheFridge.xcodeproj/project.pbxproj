@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5787BF412F56FB8100AFAE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787BF402F56FB8100AFAE01 /* AppDelegate.swift */; };
+		5787BF432F56FBF800AFAE01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5787BF422F56FBF800AFAE01 /* SceneDelegate.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		5787BF402F56FB8100AFAE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5787BF422F56FBF800AFAE01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		87BB18562F4C751800BCCB12 /* FeedTheFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedTheFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +39,8 @@
 		87BB184D2F4C751800BCCB12 = {
 			isa = PBXGroup;
 			children = (
+				5787BF402F56FB8100AFAE01 /* AppDelegate.swift */,
+				5787BF422F56FBF800AFAE01 /* SceneDelegate.swift */,
 				87BB18582F4C751800BCCB12 /* FeedTheFridge */,
 				87BB18572F4C751800BCCB12 /* Products */,
 			);
@@ -119,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5787BF412F56FB8100AFAE01 /* AppDelegate.swift in Sources */,
+				5787BF432F56FBF800AFAE01 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
