@@ -8,10 +8,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var streakNumber: UILabel!
+    @IBOutlet weak var recRecipesTableView: UITableView!
+    
+    @IBOutlet weak var recentlyTableView: UITableView!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let rippleGif = UIImage.gifImageWithName("Ripple")
+        imageView.image = rippleGif
+        
+        let strokeTextAttributes: [NSAttributedString.Key : Any] = [
+            .strokeWidth: -3.0,
+            .foregroundColor: UIColor.white,
+            .strokeColor: UIColor.darkGray,
+        ]
+        
+        streakNumber.attributedText = NSAttributedString(string: "1", attributes: strokeTextAttributes)
+        
     }
 
 
