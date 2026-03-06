@@ -34,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="IxS-lM-7ci"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipes" image="magazine" catalog="system" selectedImage="magazine.fill" id="lPA-Ue-5zx"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="lPA-Ue-5zx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1OR-sr-uzJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,8 +100,8 @@
         <image name="carrot.fill" catalog="system" width="128" height="122"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
-        <image name="magazine" catalog="system" width="110" height="128"/>
-        <image name="magazine.fill" catalog="system" width="110" height="128"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemCyanColor">
