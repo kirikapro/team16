@@ -19,8 +19,10 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
-    var inventory: [Ingredient] = []
-    
+    var inventory: [Ingredient] {
+        get { InventoryStore.sharedIngredients }
+        set { InventoryStore.sharedIngredients = newValue }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
