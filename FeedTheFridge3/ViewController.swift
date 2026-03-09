@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var streakNumber: UILabel!
     @IBOutlet weak var recRecipesTableView: UITableView!
-    
     @IBOutlet weak var recentlyTableView: UITableView!
     
     
