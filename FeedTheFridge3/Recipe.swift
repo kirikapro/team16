@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe {
+struct Recipe: Equatable {
     var title: String
     var ingredients: [String]
 }

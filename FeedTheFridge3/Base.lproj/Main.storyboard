@@ -50,11 +50,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.39607840779999998" green="0.79215681550000006" blue="0.47843140360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="mag" selectedImage="thum" id="YH1-G4-72H"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="mag" selectedImage="house.fill" catalog="system" id="YH1-G4-72H"/>
                     <connections>
                         <outlet property="imageView" destination="2Eq-Ul-A9f" id="sBl-2g-QMS"/>
                         <outlet property="streakNumber" destination="XHn-KD-cD3" id="l7e-S6-YCN"/>
                         <outlet property="tableView" destination="sBe-av-4qM" id="7hE-2n-WhM"/>
+                        <segue destination="4R0-em-18R" kind="show" identifier="toShowRecipeView" id="oAH-J8-7dC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -298,16 +299,19 @@
             <point key="canvasLocation" x="731" y="-77"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oAH-J8-7dC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Ripple.gif" width="400" height="300"/>
         <image name="carrot" catalog="system" width="128" height="122"/>
         <image name="carrot.fill" catalog="system" width="128" height="122"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="mag" width="128" height="128"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="thum" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

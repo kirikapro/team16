@@ -10,7 +10,7 @@ import UIKit
 import UIKit
 
 var selectedRecipe = Recipe(title: "", ingredients: [])
-let allRecipes: [Recipe] = [
+var allRecipes: [Recipe] = [
        Recipe(title: "Apple Smoothie", ingredients: ["apple", "milk"]),
        Recipe(title: "Omelette", ingredients: ["egg", "milk"]),
        Recipe(title: "Tomato Pasta", ingredients: ["tomato", "pasta"]),

@@ -15,11 +15,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var streakNumber: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    let recipeData = [
+ 
+    var recipeData : [[Recipe]] = [
         
-        ["Spaghetti Carbonara", "Chicken Alfredo", "Beef Stroganoff", "Vegetable Stir Fry", "Beef Tacos"],
-        ["Omlette", "Fruit Salad", "Apple Smoothie"]
+        [allRecipes.randomElement()!, allRecipes.randomElement()!],
+        [allRecipes[0], allRecipes[1], allRecipes[2]]
     
     ]
 
@@ -62,6 +62,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedRecipe = recipeData[indexPath.section][indexPath.row]
+        performSegue(withIdentifier: "toShowRecipeView", sender: nil)
     }
     
     //width between the sections
@@ -81,10 +83,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
-        cell.textLabel?.text = recipeData[indexPath.section][indexPath.row]
+        cell.textLabel?.text = recipeData[indexPath.section][indexPath.row].title
         cell.backgroundColor = .clear
         return cell
     }
+    
+
     
     
     
@@ -103,6 +107,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ]
         
         streakNumber.attributedText = NSAttributedString(string: "1", attributes: strokeTextAttributes)
+        
+        
+        
         
     }
 
