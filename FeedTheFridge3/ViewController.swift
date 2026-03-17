@@ -31,7 +31,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         //building the image part of the headers
-        let icon = UIImageView(image: UIImage(systemName: "house"))
+        let icon = UIImageView(image: UIImage(systemName: "hand.thumbsup"))
+        if section==1 {
+            icon.image = UIImage(systemName: "magnifyingglass")
+        }
         icon.tintColor = .systemBlue
         icon.contentMode = .scaleAspectFit
         icon.frame = CGRect(x: 16, y: 5, width: 50, height: 40)
@@ -41,7 +44,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //building the label part of the headers
         let label = UILabel(frame: CGRect(x: -150 + icon.frame.size.width, y: 5, width: header.frame.size.width-10-icon.frame.size.width, height: header.frame.size.height-10))
-        label.text = "Custom section header \(section)"
+        label.text = "Reccommended"
+        if section==1 {
+            label.text = "Recently Viewed"
+        }
         label.font = .systemFont(ofSize: 24, weight: .thin)
         label.frame = CGRect(x: 85, y: 5, width: 250, height: 40)
         
@@ -76,7 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
         cell.textLabel?.text = recipeData[indexPath.section][indexPath.row]
-        cell.backgroundColor = .cyan
+        cell.backgroundColor = .clear
         return cell
     }
     

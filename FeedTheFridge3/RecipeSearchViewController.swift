@@ -10,17 +10,20 @@ import UIKit
 import UIKit
 
 var selectedRecipe = Recipe(title: "", ingredients: [])
+let allRecipes: [Recipe] = [
+       Recipe(title: "Apple Smoothie", ingredients: ["apple", "milk"]),
+       Recipe(title: "Omelette", ingredients: ["egg", "milk"]),
+       Recipe(title: "Tomato Pasta", ingredients: ["tomato", "pasta"]),
+       Recipe(title: "Fruit Bowl", ingredients: ["apple", "banana"]),
+       Recipe(title: "Margherita Pizza", ingredients: ["pizza dough", "tomato", "mozzarella"]),
+       Recipe(title: "Crepes", ingredients: ["milk", "flour", "egg", "oil", "sugar"]),
+       Recipe(title: "Banana Smoothie", ingredients: ["banana", "milk"]),
+       Recipe(title: "Banana Bread", ingredients: ["banana", "flour", "egg", "sugar", "baking powder", "butter"])
+   ]
 
 class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-
-    let allRecipes: [Recipe] = [
-           Recipe(title: "Apple Smoothie", ingredients: ["apple", "milk"]),
-           Recipe(title: "Omelette", ingredients: ["egg", "milk"]),
-           Recipe(title: "Tomato Pasta", ingredients: ["tomato", "pasta"]),
-           Recipe(title: "Fruit Bowl", ingredients: ["apple", "banana"])
-       ]
 
        var matchedRecipes: [Recipe] = []
 
