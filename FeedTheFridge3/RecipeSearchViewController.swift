@@ -9,6 +9,8 @@ import UIKit
 
 import UIKit
 
+var selectedRecipe = Recipe(title: "", ingredients: [])
+
 class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -65,4 +67,10 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
 
            return cell
        }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRecipe = matchedRecipes[indexPath.row]
+        performSegue(withIdentifier: "toShowRecipeView", sender: nil)
+    }
+    
    }
