@@ -10,10 +10,10 @@ import UIKit
 
 
 
-struct recipe: Decodable {
+struct Recipe: Decodable {
     let title: String
-    let ingredients: String
-    let directions: String
+    let ingredients: String?
+    let directions: String?
     let NER: [String]
 
 }
@@ -23,9 +23,10 @@ struct recipe: Decodable {
 
 
 
+var selectedRecipe = Recipe(title: "", ingredients: "", directions: "", NER: [""])
+var publicRecipeList : [Recipe] = []
 
-
-var selectedRecipe = Recipe(title: "", ingredients: [])
+/*
 var allRecipes: [Recipe] = [
        Recipe(title: "Apple Smoothie", ingredients: ["apple", "milk"]),
        Recipe(title: "Omelette", ingredients: ["egg", "milk"]),
@@ -36,6 +37,8 @@ var allRecipes: [Recipe] = [
        Recipe(title: "Banana Smoothie", ingredients: ["banana", "milk"]),
        Recipe(title: "Banana Bread", ingredients: ["banana", "flour", "egg", "sugar", "baking powder", "butter"])
    ]
+ */
+
 
 class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -62,14 +65,19 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
            
            do {
            let decoder = JSONDecoder()
-           let recipeList = try decoder.decode([recipe].self, from: Data(jsonString.utf8))
+           let recipeList = try decoder.decode([Recipe].self, from: Data(jsonString.utf8))
            var count = 0
-           for aRecipe in recipeList {
-               count += 1
-               print("\(count) " + aRecipe.title) }
+               for aRecipe in recipeList {
+                   count += 1
+                   print("\(count) " + aRecipe.title)
+                   publicRecipeList.append(aRecipe)
+                   
+               }
            } catch let jsonErr {
            print("Error decoding JSON", jsonErr)
            }
+           
+           
            
            
            
@@ -87,8 +95,8 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
                $0.name.lowercased()
            }
 
-           matchedRecipes = allRecipes.filter { recipe in
-               for ingredient in recipe.ingredients {
+           matchedRecipes = publicRecipeList.filter { recipe in
+               for ingredient in recipe.NER {
                    if availableIngredients.contains(ingredient.lowercased()) {
                        return true
                    }
@@ -109,7 +117,7 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
 
            let recipe = matchedRecipes[indexPath.row]
            cell.textLabel?.text = recipe.title
-           cell.detailTextLabel?.text = recipe.ingredients.joined(separator: ", ")
+           cell.detailTextLabel?.text = recipe.NER.joined(separator: ", ")
 
            return cell
        }

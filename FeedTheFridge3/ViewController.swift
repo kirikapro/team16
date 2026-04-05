@@ -18,9 +18,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
  
     var recipeData : [[Recipe]] = [
         
-        [allRecipes.randomElement()!, allRecipes.randomElement()!],
-        [allRecipes[0], allRecipes[1], allRecipes[2]]
-    
+        /*
+        
+        [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!, publicRecipeList.randomElement()!],
+        [publicRecipeList[0], publicRecipeList[1], publicRecipeList[2]]
+        
+    */
     ]
 
     

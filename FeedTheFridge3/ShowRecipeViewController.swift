@@ -24,7 +24,7 @@ class ShowRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         RecipeNameLabel.text = selectedRecipe.title
-        IngredientLabel.text = selectedRecipe.ingredients.joined(separator: "\n")
+        IngredientLabel.text = selectedRecipe.NER.joined(separator: "\n")
 
         // Do any additional setup after loading the view.
     }
