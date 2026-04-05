@@ -7,7 +7,23 @@
 
 import UIKit
 
-import UIKit
+
+
+
+struct recipe: Decodable {
+    let title: String
+    let ingredients: String
+    let directions: String
+    let NER: [String]
+
+}
+
+
+
+
+
+
+
 
 var selectedRecipe = Recipe(title: "", ingredients: [])
 var allRecipes: [Recipe] = [
@@ -32,6 +48,33 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
 
            tableView.dataSource = self
            tableView.delegate = self
+           
+           
+           //JSON decoder
+           
+           guard let jsonURL = Bundle(for: type(of: self)).path(forResource: "recipes", ofType: "json") else {
+               return
+           }
+           
+           guard let jsonString = try? String(contentsOf: URL(fileURLWithPath: jsonURL), encoding: String.Encoding.utf8) else {
+               return
+           }
+           
+           do {
+           let decoder = JSONDecoder()
+           let recipeList = try decoder.decode([recipe].self, from: Data(jsonString.utf8))
+           var count = 0
+           for aRecipe in recipeList {
+               count += 1
+               print("\(count) " + aRecipe.title) }
+           } catch let jsonErr {
+           print("Error decoding JSON", jsonErr)
+           }
+           
+           
+           
+           
+           
        }
 
        override func viewWillAppear(_ animated: Bool) {
