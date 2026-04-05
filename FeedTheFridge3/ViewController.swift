@@ -7,6 +7,22 @@
 
 import UIKit
 
+struct Recipe: Decodable {
+    let title: String
+    let ingredients: String?
+    let directions: String?
+    let NER: [String]
+
+}
+
+
+
+var selectedRecipe = Recipe(title: "", ingredients: "", directions: "", NER: [""])
+var publicRecipeList : [Recipe] = []
+var recentlyViewedList : [Recipe] = []
+
+
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 
@@ -15,16 +31,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var streakNumber: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBAction func unwindToMainMenu(_ segue: UIStoryboardSegue) {
+        recipeData = [
+            [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!]
+        ]
+        
+        if recentlyViewedList.count != 0 {
+            if recentlyViewedList.count < 3 {
+                recipeData.append(recentlyViewedList)
+            }
+            else {
+                recipeData.append([recentlyViewedList[0], recentlyViewedList[1], recentlyViewedList[2]])
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    
  
-    var recipeData : [[Recipe]] = [
-        
-        /*
-        
-        [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!, publicRecipeList.randomElement()!],
-        [publicRecipeList[0], publicRecipeList[1], publicRecipeList[2]]
-        
-    */
-    ]
+    var recipeData : [[Recipe]] = []
 
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -93,7 +119,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 
     
-    
+    //after every time the tab bar goes back to main menu VC
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        recipeData = [
+            [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!]
+        ]
+        
+        if recentlyViewedList.count != 0 {
+            if recentlyViewedList.count < 3 {
+                recipeData.append(recentlyViewedList)
+            }
+            else {
+                recipeData.append([recentlyViewedList[0], recentlyViewedList[1], recentlyViewedList[2]])
+            }
+        }
+        
+        tableView.reloadData()
+    }
     
     
     
@@ -110,6 +154,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ]
         
         streakNumber.attributedText = NSAttributedString(string: "1", attributes: strokeTextAttributes)
+        
+        
+        
+        //JSON decoder
+        
+        guard let jsonURL = Bundle(for: type(of: self)).path(forResource: "recipes", ofType: "json") else {
+            return
+        }
+        
+        guard let jsonString = try? String(contentsOf: URL(fileURLWithPath: jsonURL), encoding: String.Encoding.utf8) else {
+            return
+        }
+        
+        do {
+        let decoder = JSONDecoder()
+        let recipeList = try decoder.decode([Recipe].self, from: Data(jsonString.utf8))
+        var count = 0
+            for aRecipe in recipeList {
+                count += 1
+                print("\(count) " + aRecipe.title)
+                publicRecipeList.append(aRecipe)
+                
+            }
+        } catch let jsonErr {
+        print("Error decoding JSON", jsonErr)
+        }
+        
+        recipeData = [
+            [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!],
+            [publicRecipeList[0], publicRecipeList[1], publicRecipeList[2]]
+        ]
+        tableView.reloadData()
+        
+        
+        
         
         
         

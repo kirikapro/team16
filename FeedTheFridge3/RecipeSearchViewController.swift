@@ -10,35 +10,6 @@ import UIKit
 
 
 
-struct Recipe: Decodable {
-    let title: String
-    let ingredients: String?
-    let directions: String?
-    let NER: [String]
-
-}
-
-
-
-
-
-
-var selectedRecipe = Recipe(title: "", ingredients: "", directions: "", NER: [""])
-var publicRecipeList : [Recipe] = []
-
-/*
-var allRecipes: [Recipe] = [
-       Recipe(title: "Apple Smoothie", ingredients: ["apple", "milk"]),
-       Recipe(title: "Omelette", ingredients: ["egg", "milk"]),
-       Recipe(title: "Tomato Pasta", ingredients: ["tomato", "pasta"]),
-       Recipe(title: "Fruit Bowl", ingredients: ["apple", "banana"]),
-       Recipe(title: "Margherita Pizza", ingredients: ["pizza dough", "tomato", "mozzarella"]),
-       Recipe(title: "Crepes", ingredients: ["milk", "flour", "egg", "oil", "sugar"]),
-       Recipe(title: "Banana Smoothie", ingredients: ["banana", "milk"]),
-       Recipe(title: "Banana Bread", ingredients: ["banana", "flour", "egg", "sugar", "baking powder", "butter"])
-   ]
- */
-
 
 class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -51,34 +22,6 @@ class RecipeSearchViewController: UIViewController, UITableViewDataSource, UITab
 
            tableView.dataSource = self
            tableView.delegate = self
-           
-           
-           //JSON decoder
-           
-           guard let jsonURL = Bundle(for: type(of: self)).path(forResource: "recipes", ofType: "json") else {
-               return
-           }
-           
-           guard let jsonString = try? String(contentsOf: URL(fileURLWithPath: jsonURL), encoding: String.Encoding.utf8) else {
-               return
-           }
-           
-           do {
-           let decoder = JSONDecoder()
-           let recipeList = try decoder.decode([Recipe].self, from: Data(jsonString.utf8))
-           var count = 0
-               for aRecipe in recipeList {
-                   count += 1
-                   print("\(count) " + aRecipe.title)
-                   publicRecipeList.append(aRecipe)
-                   
-               }
-           } catch let jsonErr {
-           print("Error decoding JSON", jsonErr)
-           }
-           
-           
-           
            
            
            

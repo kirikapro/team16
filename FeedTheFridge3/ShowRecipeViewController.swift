@@ -44,6 +44,18 @@ class ShowRecipeViewController: UIViewController {
 
         
         text.text = ("Ingredients: \n\n\(allIngredients) \n\n\n\nDirections: \n\n\(allDirections)")
+        
+        
+        recentlyViewedList.reverse()
+        if recentlyViewedList.count > 4 {
+            _ = recentlyViewedList.removeLast()
+        }
+        if recentlyViewedList.contains(where: { $0.title == selectedRecipe.title }) {
+            recentlyViewedList.removeAll(where: { $0.title == selectedRecipe.title })
+        }
+        recentlyViewedList.append(selectedRecipe)
+        recentlyViewedList.reverse()
+        
         // Do any additional setup after loading the view.
     }
     
