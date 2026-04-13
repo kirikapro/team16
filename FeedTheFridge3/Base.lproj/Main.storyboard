@@ -292,40 +292,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sun   Mon   Tues   Wed   Thurs   Fri   Sat" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdE-1Q-Aul">
-                                <rect key="frame" x="22" y="131" width="349" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-SX-sa2">
+                                <rect key="frame" x="77" y="115" width="50" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="S       M       T       W      T       F       S" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdE-1Q-Aul">
+                                <rect key="frame" x="48" y="127" width="297" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flame.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T3e-Bs-cPB">
-                                <rect key="frame" x="26" y="160.66666666666663" width="34" height="34"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T3e-Bs-cPB">
+                                <rect key="frame" x="36" y="160.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flame.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TM6-I0-5OJ">
-                                <rect key="frame" x="73" y="159.66666666666663" width="34" height="34"/>
+                                <rect key="frame" x="85" y="160.66666666666663" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flame.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ePN-Wf-jXi">
+                                <rect key="frame" x="132" y="160.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gdK-4i-Kcd">
-                                <rect key="frame" x="185" y="160.66666666666663" width="34" height="34"/>
+                                <rect key="frame" x="179" y="159.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jfP-9O-N3m">
-                                <rect key="frame" x="238" y="159.66666666666663" width="34" height="34"/>
+                                <rect key="frame" x="226" y="158.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jbx-UM-RZL">
-                                <rect key="frame" x="289" y="160.66666666666663" width="34" height="34"/>
+                                <rect key="frame" x="272" y="159.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8za-ar-Erl">
-                                <rect key="frame" x="337" y="160.66666666666663" width="34" height="34"/>
+                                <rect key="frame" x="318" y="160.66666666666663" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
@@ -343,16 +354,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flame.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ePN-Wf-jXi">
-                                <rect key="frame" x="128" y="160.66666666666663" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="maK-ia-7fl"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tgK-Ct-428"/>
+                    <connections>
+                        <outlet property="currentLabel" destination="GHD-6w-Usa" id="LoE-4e-HUj"/>
+                        <outlet property="fridayImg" destination="Jbx-UM-RZL" id="QiQ-kh-p1M"/>
+                        <outlet property="longestLabel" destination="0Gz-lN-u47" id="yiD-8v-1Oh"/>
+                        <outlet property="mondayImg" destination="TM6-I0-5OJ" id="INp-LD-ju4"/>
+                        <outlet property="saturdayImg" destination="8za-ar-Erl" id="pTU-rg-feO"/>
+                        <outlet property="sundayImg" destination="T3e-Bs-cPB" id="ywL-cM-quK"/>
+                        <outlet property="thursdayImg" destination="jfP-9O-N3m" id="7hA-mq-jJO"/>
+                        <outlet property="tuesdayImg" destination="ePN-Wf-jXi" id="6ey-OW-usw"/>
+                        <outlet property="wednesdayImg" destination="gdK-4i-Kcd" id="Bdd-qY-Wps"/>
+                        <outlet property="whiteImg" destination="ndW-SX-sa2" id="QHl-n5-dgZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBh-2b-8kN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,7 +414,9 @@
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
