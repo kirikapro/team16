@@ -258,6 +258,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Streak Records"/>
+                                <connections>
+                                    <segue destination="hLn-wl-BTo" kind="show" id="Z15-Wx-f7w"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Bg-fZi">
                                 <rect key="frame" x="47" y="316" width="299" height="45"/>
@@ -280,6 +283,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqU-yR-fKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861.8320610687022" y="829.57746478873241"/>
+        </scene>
+        <!--Streak View Controller-->
+        <scene sceneID="18j-VS-MAt">
+            <objects>
+                <viewController title="Streak View Controller" id="hLn-wl-BTo" customClass="StreakViewController" customModule="FeedTheFridge3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J76-E1-pgj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="maK-ia-7fl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tgK-Ct-428"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBh-2b-8kN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3266" y="830"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cuV-Cb-379">
