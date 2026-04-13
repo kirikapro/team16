@@ -10,6 +10,9 @@ import UIKit
 class StreakViewController: UIViewController {
     
     
+    @IBOutlet weak var DaysOfWeekDisplay: UIStackView!
+    
+    
     func weekdayDates(_ startingDate: Date) -> [Date] {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: startingDate)
