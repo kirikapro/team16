@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Recipe Structure
 struct Recipe: Decodable {
     let title: String
     let ingredients: String?
@@ -26,6 +27,7 @@ var recentlyViewedList : [Recipe] = []
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 
+    // MARK: - Set up
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var streakNumber: UILabel!
@@ -53,6 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var recipeData : [[Recipe]] = []
 
     
+    // MARK: - Tableview
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
@@ -122,6 +125,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //after every time the tab bar goes back to main menu VC
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // MARK: - Config recipe lists
 
         recipeData = [
             [publicRecipeList.randomElement()!, publicRecipeList.randomElement()!]
@@ -136,24 +140,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         
+        
+        // MARK: - Segue to Streaks
+        //Performs a segue to StreaksVC if logging in a new day.
         let calendar = Calendar.current
         
         let currentStreak = StreakViewController.getCurrentStreak()
-        print(currentStreak)
         let lastActiveDay = StreakViewController.getLastActiveDay()
         
-        
+        //for updating streak
         if calendar.isDate(lastActiveDay, inSameDayAs: calendar.date(byAdding: .day, value: -1, to: publicToday)!) {
-            print("Update streak main VC")
             streakNumber.text = "\(currentStreak + 1)"
-            performSegue(withIdentifier: "toStreakViewController", sender: self)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toStreakViewController", sender: self)
+            }
+        }
+        //for creating new streak
+        else if !calendar.isDate(lastActiveDay, inSameDayAs: publicToday) {
+            streakNumber.text = "1"
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toStreakViewController", sender: self)
+            }
             
         }
-        else if !calendar.isDate(lastActiveDay, inSameDayAs: publicToday) {
-            print("Create new streak main VC")
-            streakNumber.text = "1"
-            performSegue(withIdentifier: "toStreakViewController", sender: self)
-        }
+        //don't do segue if logged in already today
         else {
             streakNumber.text = "\(currentStreak)"
         }
@@ -166,6 +176,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // MARK: - Config gif, streak number
         let rippleGif = UIImage.gifImageWithName("Ripple")
         imageView.image = rippleGif
         
@@ -179,7 +190,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         
-        //JSON decoder
+        // MARK: - JSON Decoder
         
         guard let jsonURL = Bundle(for: type(of: self)).path(forResource: "recipes", ofType: "json") else {
             return

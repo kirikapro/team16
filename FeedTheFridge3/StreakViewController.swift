@@ -6,19 +6,20 @@
 //
 
 import UIKit
+// MARK: - Testing with date
 //date is today (Monday 13th April)
 //let publicToday = Date()
 
 //date is tomorrow (Tuesday 14th April)
-let publicToday = Date.now.addingTimeInterval(86400)
+//let publicToday = Date.now.addingTimeInterval(86400)
 
 //date is 4 days in the future (Friday 17th April)
-//let publicToday = Date.now.addingTimeInterval(86400 * 4)
+let publicToday = Date.now.addingTimeInterval(86400 * 4)
 
 
 
 class StreakViewController: UIViewController {
-    
+    // MARK: - Set up
     
     @IBOutlet weak var sundayImg: UIImageView!
     @IBOutlet weak var mondayImg: UIImageView!
@@ -39,6 +40,7 @@ class StreakViewController: UIViewController {
     let todayIndex = Calendar.current.component(.weekday, from: publicToday)
     
     
+    // MARK: - Helper functions
     //takes day of the week as an int (Sunday=1, Monday=2 etc.) and uses it as a key for userDefaults
     func checkDate(_ dayOfWeek: Int) -> Bool {
         return userDefaults.bool(forKey: "\(dayOfWeek)")
@@ -76,30 +78,29 @@ class StreakViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: - User Defaults
         userDefaults.set(true, forKey: "\(todayIndex)")
         
         let calendar = Calendar.current
-        
-        
+
         
         var currentStreak = StreakViewController.getCurrentStreak()
         let lastActiveDay = StreakViewController.getLastActiveDay()
         var longestStreak = StreakViewController.getLongestStreak()
         
         
+        //updating streak
         if calendar.isDate(lastActiveDay, inSameDayAs: calendar.date(byAdding: .day, value: -1, to: publicToday)!) {
-            print("updating streak")
             currentStreak += 1
             userDefaults.set(currentStreak, forKey: "currentStreak")
         }
+        // creating new streaks
         else if !calendar.isDate(lastActiveDay, inSameDayAs: publicToday) {
             currentStreak = 1
-            print("Create new streak")
             userDefaults.set(currentStreak, forKey: "currentStreak")
         }
-        else {
-            print("Logged in today!")
-        }
+
         
         userDefaults.set(StreakViewController.dateToString(publicToday), forKey: "lastActiveDay")
         
@@ -111,6 +112,7 @@ class StreakViewController: UIViewController {
         
         
         
+        // MARK: - Display streak
         longestLabel.text = "Longest Streak: \(longestStreak)"
         currentLabel.text = "Current Streak: \(currentStreak)"
         
@@ -142,18 +144,8 @@ class StreakViewController: UIViewController {
         whiteImg.frame.origin.x = CGFloat(28 + 47 * (todayIndex - 1))
         
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
