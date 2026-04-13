@@ -136,6 +136,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         
+        let calendar = Calendar.current
+        
+        let currentStreak = StreakViewController.getCurrentStreak()
+        print(currentStreak)
+        let lastActiveDay = StreakViewController.getLastActiveDay()
+        
+        
+        if calendar.isDate(lastActiveDay, inSameDayAs: calendar.date(byAdding: .day, value: -1, to: publicToday)!) {
+            print("Update streak main VC")
+            streakNumber.text = "\(currentStreak + 1)"
+            performSegue(withIdentifier: "toStreakViewController", sender: self)
+            
+        }
+        else if !calendar.isDate(lastActiveDay, inSameDayAs: publicToday) {
+            print("Create new streak main VC")
+            streakNumber.text = "1"
+            performSegue(withIdentifier: "toStreakViewController", sender: self)
+        }
+        else {
+            streakNumber.text = "\(currentStreak)"
+        }
+        
         tableView.reloadData()
     }
     
@@ -186,6 +208,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             [publicRecipeList[0], publicRecipeList[1], publicRecipeList[2]]
         ]
         tableView.reloadData()
+        
+        
+        
         
         
         
