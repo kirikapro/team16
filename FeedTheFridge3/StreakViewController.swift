@@ -11,10 +11,10 @@ import UIKit
 //let publicToday = Date()
 
 //date is tomorrow (Tuesday 14th April)
-//let publicToday = Date.now.addingTimeInterval(86400)
+let publicToday = Date.now.addingTimeInterval(86400)
 
 //date is 4 days in the future (Friday 17th April)
-let publicToday = Date.now.addingTimeInterval(86400 * 4)
+//let publicToday = Date.now.addingTimeInterval(86400 * 4)
 
 
 
