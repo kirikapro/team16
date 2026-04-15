@@ -356,14 +356,14 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="c0u-wI-6m2" kind="show" id="dnh-nD-CSm"/>
+                                    <segue destination="c0u-wI-6m2" kind="show" identifier="newMyRecipe" id="dnh-nD-CSm"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <segue destination="c0u-wI-6m2" kind="show" id="0kx-A0-YYq"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="c0u-wI-6m2" kind="show" identifier="editMyRecipe" id="5vR-xy-U9d"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZe-v9-VvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -581,7 +581,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Z15-Wx-f7w"/>
-        <segue reference="0kx-A0-YYq"/>
+        <segue reference="5vR-xy-U9d"/>
         <segue reference="oAH-J8-7dC"/>
     </inferredMetricsTieBreakers>
     <resources>

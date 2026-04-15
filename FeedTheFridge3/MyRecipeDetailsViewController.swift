@@ -10,26 +10,57 @@ import CoreData
 
 class MyRecipeDetailsViewController: UIViewController {
     
+    var selectedMyRecipe: MyRecipe?
+    
     
     @IBAction func saveAction(_ sender: Any) {
         let appDelegate  = UIApplication.shared.delegate as! AppDelegate
         let context = (UIApplication.shared.delegate as! AppDelegate)
             .persistentContainer.viewContext
-        let newMyRecipe = MyRecipe(context: context)
-        newMyRecipe.id = myRecipeList.count as NSNumber
-        newMyRecipe.title = titleTF.text
-        newMyRecipe.ingredients = ingredientsTV.text
-        newMyRecipe.directions = directionsTV.text
-        newMyRecipe.ner = convertIngredientsToNER(ingredientsTV.text ?? "")
+        //create new MyRecipe
+        if selectedMyRecipe == nil {
+            let newMyRecipe = MyRecipe(context: context)
+            newMyRecipe.id = myRecipeList.count as NSNumber
+            newMyRecipe.title = titleTF.text
+            newMyRecipe.ingredients = ingredientsTV.text
+            newMyRecipe.directions = directionsTV.text
+            newMyRecipe.ner = convertIngredientsToNER(ingredientsTV.text ?? "")
+            
+            do {
+                try context.save()
+                myRecipeList.append(newMyRecipe)
+                navigationController?.popViewController(animated: true)
+            }
+            catch {
+                print("Error saving context: \(error)")
+            }
+            
+        }
+        //edit MyRecipe
+        else {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyRecipe")
+            do {
+                let results: NSArray = try context.fetch(request) as NSArray
+                for result in results {
+                    let myRecipe = result as! MyRecipe
+                    if (myRecipe == selectedMyRecipe) {
+                        myRecipe.title = titleTF.text
+                        myRecipe.ingredients = ingredientsTV.text
+                        myRecipe.directions = directionsTV.text
+                        myRecipe.ner = convertIngredientsToNER(ingredientsTV.text ?? "")
+                        
+                        try context.save()
+                        navigationController?.popViewController(animated: true)
+                        
+                    }
+                }
+            }
+            catch {
+                print("Fetch failed")
+            }
+        }
         
-        do {
-            try context.save()
-            myRecipeList.append(newMyRecipe)
-            navigationController?.popViewController(animated: true)
-        }
-        catch {
-            print("Error saving context: \(error)")
-        }
+        
         
     }
     
@@ -44,11 +75,12 @@ class MyRecipeDetailsViewController: UIViewController {
             var formattedIngredient: String = ""
             for word in ingredient.split(separator: " ") {
                 if !word.contains(where: { $0.isNumber }) {
-                    formattedIngredient.append("\(word) ")
+                    formattedIngredient.append(" \(word)")
                 }
             }
             returnString.append("\(formattedIngredient),")
         }
+        returnString.removeLast()
         print(returnString)
         return returnString
     }
@@ -56,6 +88,11 @@ class MyRecipeDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if selectedMyRecipe != nil {
+            titleTF.text = selectedMyRecipe?.title
+            ingredientsTV.text = selectedMyRecipe?.ingredients
+            directionsTV.text = selectedMyRecipe?.directions
+        }
         
 
         // Do any additional setup after loading the view.

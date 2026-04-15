@@ -34,6 +34,27 @@ class AllMyRecipesViewController: UITableViewController {
         return 100
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "editMyRecipe", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editMyRecipe" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let myRecipeDetail = segue.destination as? MyRecipeDetailsViewController
+            let selectedMyRecipe: MyRecipe!
+            selectedMyRecipe = myRecipeList[indexPath.row]
+            myRecipeDetail!.selectedMyRecipe = selectedMyRecipe
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+        }
+    }
+    
+    
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
