@@ -20,6 +20,7 @@ class MyRecipeDetailsViewController: UIViewController {
         newMyRecipe.title = titleTF.text
         newMyRecipe.ingredients = ingredientsTV.text
         newMyRecipe.directions = directionsTV.text
+        newMyRecipe.ner = convertIngredientsToNER(ingredientsTV.text ?? "")
         
         do {
             try context.save()
@@ -37,6 +38,20 @@ class MyRecipeDetailsViewController: UIViewController {
     @IBOutlet weak var directionsTV: UITextView!
     
     
+    func convertIngredientsToNER(_ ingredients: String) -> String {
+        var returnString: String = ""
+        for ingredient in ingredients.split(separator: ",") {
+            var formattedIngredient: String = ""
+            for word in ingredient.split(separator: " ") {
+                if !word.contains(where: { $0.isNumber }) {
+                    formattedIngredient.append("\(word) ")
+                }
+            }
+            returnString.append("\(formattedIngredient),")
+        }
+        print(returnString)
+        return returnString
+    }
     
 
     override func viewDidLoad() {

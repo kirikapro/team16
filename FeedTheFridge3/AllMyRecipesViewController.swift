@@ -21,7 +21,7 @@ class AllMyRecipesViewController: UITableViewController {
         thisMyRecipe = myRecipeList[indexPath.row]
         
         myRecipeCell.titleLabel.text = thisMyRecipe.title
-        myRecipeCell.ingredientsLabel.text = thisMyRecipe.ingredients
+        myRecipeCell.ingredientsLabel.text = thisMyRecipe.ner
         
         return myRecipeCell
     }
