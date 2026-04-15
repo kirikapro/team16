@@ -63,25 +63,22 @@ class AllMyRecipesViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        if (firstLoad) {
-            firstLoad = false
-            let appDelegate  = UIApplication.shared.delegate as! AppDelegate
-            let context = (UIApplication.shared.delegate as! AppDelegate)
-                .persistentContainer.viewContext
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyRecipe")
-            do {
-                let results: NSArray = try context.fetch(request) as NSArray
-                for result in results {
-                    let myRecipe = result as! MyRecipe
-                    myRecipeList.append(myRecipe)
-                }
-            }
-            catch {
-                print("Fetch failed")
-            }
+        firstLoad = false
+        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+        let context = (UIApplication.shared.delegate as! AppDelegate)
+            .persistentContainer.viewContext
+
+        let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest() as! NSFetchRequest<MyRecipe>
+
+        do {
+            myRecipeList = try context.fetch(request)
+        } catch {
+            print("Fetch failed")
         }
+        
     }
     
+    //https://www.youtube.com/watch?v=dkIBr4jN54I
 
     /*
     // MARK: - Navigation
