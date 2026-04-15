@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 var myRecipeList = [MyRecipe]()
 
 class AllMyRecipesViewController: UITableViewController {
+    
+    var firstLoad = true
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,14 +30,35 @@ class AllMyRecipesViewController: UITableViewController {
         return myRecipeList.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if (firstLoad) {
+            firstLoad = false
+            let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+            let context = (UIApplication.shared.delegate as! AppDelegate)
+                .persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "MyRecipe")
+            do {
+                let results: NSArray = try context.fetch(request) as NSArray
+                for result in results {
+                    let myRecipe = result as! MyRecipe
+                    myRecipeList.append(myRecipe)
+                }
+            }
+            catch {
+                print("Fetch failed")
+            }
+        }
     }
     
 

@@ -15,7 +15,6 @@ class MyRecipeDetailsViewController: UIViewController {
         let appDelegate  = UIApplication.shared.delegate as! AppDelegate
         let context = (UIApplication.shared.delegate as! AppDelegate)
             .persistentContainer.viewContext
-        //let entity = NSEntityDescription.entity(forEntityName: "MyRecipe", in: context)
         let newMyRecipe = MyRecipe(context: context)
         newMyRecipe.id = myRecipeList.count as NSNumber
         newMyRecipe.title = titleTF.text
