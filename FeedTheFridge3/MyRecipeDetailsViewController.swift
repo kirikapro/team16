@@ -75,13 +75,14 @@ class MyRecipeDetailsViewController: UIViewController {
             var formattedIngredient: String = ""
             for word in ingredient.split(separator: " ") {
                 if !word.contains(where: { $0.isNumber }) {
-                    formattedIngredient.append(" \(word)")
+                    formattedIngredient.append("\(word) ")
                 }
             }
-            returnString.append("\(formattedIngredient),")
+            formattedIngredient.removeLast()
+            returnString.append("\(formattedIngredient), ")
         }
         returnString.removeLast()
-        print(returnString)
+        returnString.removeLast()
         return returnString
     }
     
