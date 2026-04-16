@@ -17,6 +17,7 @@ class InventoryStore {
     
     static func fetchIngredients() {
 
+        sharedIngredients.removeAll()
         let context = (UIApplication.shared.delegate as! AppDelegate)
             .persistentContainer.viewContext
 
