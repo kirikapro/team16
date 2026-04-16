@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 struct Ingredient {
     var name: String
     var quantity: String

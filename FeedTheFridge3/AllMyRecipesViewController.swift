@@ -12,7 +12,21 @@ var myRecipeList = [MyRecipe]()
 
 class AllMyRecipesViewController: UITableViewController {
     
-    var firstLoad = true
+    
+    static func fetchRecipes() {
+
+        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+        let context = (UIApplication.shared.delegate as! AppDelegate)
+            .persistentContainer.viewContext
+
+        let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest() as! NSFetchRequest<MyRecipe>
+
+        do {
+            myRecipeList = try context.fetch(request)
+        } catch {
+            print("Fetch failed")
+        }
+    }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,18 +77,9 @@ class AllMyRecipesViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        firstLoad = false
-        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
-        let context = (UIApplication.shared.delegate as! AppDelegate)
-            .persistentContainer.viewContext
-
-        let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest() as! NSFetchRequest<MyRecipe>
-
-        do {
-            myRecipeList = try context.fetch(request)
-        } catch {
-            print("Fetch failed")
-        }
+        AllMyRecipesViewController.fetchRecipes()
+        
+        
         
     }
     

@@ -15,5 +15,6 @@ class MyRecipe: NSManagedObject {
     @NSManaged var ingredients: String!
     @NSManaged var directions: String!
     @NSManaged var ner: String!
+    @NSManaged var dateDeleted: Date?
     
 }

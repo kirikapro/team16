@@ -176,6 +176,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AllMyRecipesViewController.fetchRecipes()
+        
         // MARK: - Config gif, streak number
         let rippleGif = UIImage.gifImageWithName("Ripple")
         imageView.image = rippleGif
