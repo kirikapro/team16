@@ -20,6 +20,23 @@ class ProfileViewController: UIViewController {
         performSegue(withIdentifier: "toSettingsViewController", sender: self)
     }
     
+    @IBAction func unwindToProfile(segue: UIStoryboardSegue) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refreshPage()
+        }
+        
+    }
+    
+    
+    func refreshPage() {
+        let userDefaults = UserDefaults.standard
+        username = userDefaults.string(forKey: "username")
+        image = userDefaults.string(forKey: "image") ?? "carrot"
+
+
+        usernameLabel.text = username ?? "TestUser"
+        userImage.image = UIImage(systemName: image ?? "carrot")
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSettingsViewController" {
@@ -32,10 +49,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        usernameLabel.text = username ?? "TestUser"
-        userImage.image = UIImage(systemName: image ?? "carrot")
+        refreshPage()
         
     }
     

@@ -377,6 +377,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                 <connections>
                                     <action selector="saveClicked:" destination="Dg3-yb-RvF" eventType="touchUpInside" id="fgv-si-bis"/>
+                                    <segue destination="z8s-Kz-Q8Z" kind="unwind" unwindAction="unwindToProfileWithSegue:" id="hQ5-Ez-e0w"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fork.knife" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ast-0n-4F1">
@@ -396,6 +397,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="af5-yL-rDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="z8s-Kz-Q8Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2717.9104477611941" y="1617.391304347826"/>
         </scene>

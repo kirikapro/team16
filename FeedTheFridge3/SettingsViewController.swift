@@ -45,6 +45,11 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func saveClicked(_ sender: Any) {
+        userDefaults.set(usernameTF.text, forKey: "username")
+        userDefaults.set(imageChoices[imagePicker.selectedRow(inComponent: 0)], forKey: "image")
+        
+        
+        
     }
     
     func updateTheme() {
