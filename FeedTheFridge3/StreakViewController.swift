@@ -8,10 +8,10 @@
 import UIKit
 // MARK: - Testing with date
 //date is today (Monday 13th April)
-//let publicToday = Date()
+let publicToday = Date()
 
 //date is tomorrow (Tuesday 14th April)
-let publicToday = Date.now.addingTimeInterval(86400)
+//let publicToday = Date.now.addingTimeInterval(86400)
 
 //date is 4 days in the future (Friday 17th April)
 //let publicToday = Date.now.addingTimeInterval(86400 * 4)
