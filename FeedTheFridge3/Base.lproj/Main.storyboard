@@ -238,22 +238,15 @@
         <!--Profile-->
         <scene sceneID="R3p-w5-5Tn">
             <objects>
-                <viewController title="Profile" id="KZb-XS-sIp" sceneMemberID="viewController">
+                <viewController title="Profile" id="KZb-XS-sIp" customClass="ProfileViewController" customModule="FeedTheFridge3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f7V-Rm-qvz">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fork.knife" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AvD-I5-lTr">
-                                <rect key="frame" x="16" y="126" width="126" height="124"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carrot" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AvD-I5-lTr">
+                                <rect key="frame" x="53" y="136.33333333333337" width="103" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duG-2A-nVo">
-                                <rect key="frame" x="164" y="165" width="167" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Bg-fZi">
                                 <rect key="frame" x="47" y="460" width="299" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -266,7 +259,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Settings"/>
                                 <connections>
-                                    <segue destination="Dg3-yb-RvF" kind="show" id="2kM-fc-MDL"/>
+                                    <action selector="SettingsClicked:" destination="KZb-XS-sIp" eventType="touchUpInside" id="MLa-0N-7br"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-2m-bny">
+                                <rect key="frame" x="47" y="326" width="299" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="My Recipes"/>
+                                <connections>
+                                    <segue destination="z1l-nf-elw" kind="show" id="AUb-a6-RJH"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAo-BL-vux">
@@ -285,29 +287,32 @@
                                     <segue destination="hLn-wl-BTo" kind="show" id="Z15-Wx-f7w"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-2m-bny">
-                                <rect key="frame" x="47" y="326" width="299" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duG-2A-nVo">
+                                <rect key="frame" x="172" y="165" width="167" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="My Recipes"/>
-                                <connections>
-                                    <segue destination="z1l-nf-elw" kind="show" id="AUb-a6-RJH"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WKO-ai-Yft"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="tYF-JE-1aT"/>
+                    <connections>
+                        <outlet property="userImage" destination="AvD-I5-lTr" id="Hk8-7c-b7d"/>
+                        <outlet property="usernameLabel" destination="duG-2A-nVo" id="qeg-3D-dAl"/>
+                        <segue destination="Dg3-yb-RvF" kind="show" identifier="toSettingsViewController" id="Qgr-w6-xnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqU-yR-fKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861.8320610687022" y="829.57746478873241"/>
+            <point key="canvasLocation" x="1861.1940298507461" y="829.29061784897021"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="SSc-LL-ZVz">
             <objects>
-                <viewController id="Dg3-yb-RvF" sceneMemberID="viewController">
+                <viewController id="Dg3-yb-RvF" customClass="SettingsViewController" customModule="FeedTheFridge3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IuX-af-bPA">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -358,8 +363,14 @@
                                 <rect key="frame" x="168" y="221" width="207" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yo1-ey-P9L">
+                                <rect key="frame" x="318" y="20" width="61" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fork.knife" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ast-0n-4F1">
-                                <rect key="frame" x="49" y="278" width="100" height="101"/>
+                                <rect key="frame" x="70" y="298" width="58" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -367,6 +378,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="VGi-Jz-cVc"/>
+                    <connections>
+                        <outlet property="userImage" destination="ast-0n-4F1" id="Cy1-hF-YuH"/>
+                        <outlet property="usernameTF" destination="coe-nT-PLw" id="6Na-dv-dsE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="af5-yL-rDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
