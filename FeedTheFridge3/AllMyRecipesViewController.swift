@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import CoreData
+internal import CoreData
 
 var myRecipeList = [MyRecipe]()
 
@@ -15,7 +15,6 @@ class AllMyRecipesViewController: UITableViewController {
     
     static func fetchRecipes() {
 
-        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
         let context = (UIApplication.shared.delegate as! AppDelegate)
             .persistentContainer.viewContext
 

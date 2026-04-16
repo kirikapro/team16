@@ -5,9 +5,8 @@
 //  Created by Micha Glissmann on 16/04/2026.
 //
 
-import Foundation
-import CoreData
 
+/*
 @objc(MyIngredient)
 class MyIngredient: NSManagedObject {
     @NSManaged var name: String!
@@ -15,3 +14,5 @@ class MyIngredient: NSManagedObject {
     @NSManaged var dateDeleted: Date?
     
 }
+
+*/

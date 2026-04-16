@@ -178,6 +178,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         AllMyRecipesViewController.fetchRecipes()
+        InventoryStore.fetchIngredients()
         
         // MARK: - Config gif, streak number
         let rippleGif = UIImage.gifImageWithName("Ripple")

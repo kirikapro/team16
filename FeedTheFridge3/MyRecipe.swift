@@ -5,8 +5,9 @@
 //  Created by Micha Glissmann on 14/04/2026.
 //
 
+
 import Foundation
-import CoreData
+internal import CoreData
 
 @objc(MyRecipe)
 class MyRecipe: NSManagedObject {
@@ -18,3 +19,5 @@ class MyRecipe: NSManagedObject {
     @NSManaged var dateDeleted: Date?
     
 }
+
+

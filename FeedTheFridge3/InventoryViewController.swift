@@ -6,11 +6,13 @@
 //
 
 import UIKit
+internal import CoreData
 
 
 struct Ingredient {
     var name: String
     var quantity: String
+    var dateDeleted: Date? = nil
 }
 
 
@@ -30,6 +32,9 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        InventoryStore.fetchIngredients()
+        tableView.reloadData()
     }
 
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -40,6 +45,23 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
 
         let newItem = Ingredient(name: ingredient, quantity: quantity)
         inventory.append(newItem)
+        
+        //add to Core Data
+        let context = (UIApplication.shared.delegate as! AppDelegate)
+            .persistentContainer.viewContext
+        let newMyIngredient = MyIngredient(context: context)
+        
+        newMyIngredient.name = newItem.name
+        newMyIngredient.quantity = newItem.quantity
+        
+        
+        do {
+            try context.save()
+            myIngredients.append(newMyIngredient)
+        }
+        catch {
+            print("Error saving context: \(error)")
+        }
         
         
         tableView.reloadData()
@@ -67,6 +89,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
             inventory.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
