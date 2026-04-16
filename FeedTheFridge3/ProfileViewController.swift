@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         usernameLabel.text = username ?? "TestUser"
         userImage.image = UIImage(systemName: image ?? "carrot")
         
